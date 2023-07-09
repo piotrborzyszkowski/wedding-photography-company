@@ -1,9 +1,12 @@
-export type ServiceYear = 2020 | 2021 | 2022;
-export type ServiceType = "Photography" | "VideoRecording" | "BlurayPackage" | "TwoDayEvent" | "WeddingSession";
+import Price from "./Price";
+import pricers from "./pricers";
+import {ServiceType, ServiceYear} from "./typedef";
 
 export const updateSelectedServices = (
     previouslySelectedServices: ServiceType[],
     action: { type: "Select" | "Deselect"; service: ServiceType }
 ) => [];
 
-export const calculatePrice = (selectedServices: ServiceType[], selectedYear: ServiceYear) => ({ basePrice: 0, finalPrice: 0 });
+export const calculatePrice = (selectedServices: ServiceType[], selectedYear: ServiceYear): Price => {
+    return pricers.get(selectedYear)(new Set(selectedServices));
+};
