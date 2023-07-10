@@ -1,6 +1,7 @@
 import {updateSelectedServices, calculatePrice} from "./index";
 import {ServiceType, ServiceYear} from "./typedef";
 
+// it would make sense to refactor those tests to match the refactoring - however, as they are used to verify the task, I am not touching them
 describe("updateSelectedServices.select", () => {
     test("should select when not selected", () => {
         const result = updateSelectedServices([], { type: "Select", service: "Photography" });
