@@ -1,8 +1,9 @@
 import {addToPrice} from "./addToPrice";
 import {Price, ServiceType} from "../typedef";
 import {isAllowedToUse} from "../validators";
+import {Pricer} from "./typedef";
 
-export const pricer2020 = (selectedServices: ServiceType[]): Price => {
+export const pricer2020: Pricer = (selectedServices: ServiceType[]): Price => {
     const selectedServicesSet = new Set(selectedServices);
     const price = { basePrice: 0, finalPrice: 0 };
 
